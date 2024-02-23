@@ -1,7 +1,7 @@
-from ast import main
-from pages.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from pages.base_page import BasePage
+
 
 
 class LogoHeaderPage(BasePage):

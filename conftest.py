@@ -9,9 +9,6 @@ from webdriver_manager.firefox import GeckoDriverManager
 def browser():
     options = Options()
     options.add_argument('--window-size=1920,1080')
-    service = Service(
-        executable_path='/Users/macbook/Desktop/WebDriver/bin/geckodriver')
-    browser = webdriver.Firefox(service=service, options=options)
-    # browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+    browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
     yield browser
     browser.quit()
