@@ -17,7 +17,5 @@ class TestLogoHeaderPage:
         browser.get('https://qa-scooter.praktikum-services.ru/order')
         logo.find_and_click_by_logo(
             (LogoHeaderPageLocators.LOGO_SCOOTER), 'https://qa-scooter.praktikum-services.ru')
-        # logo.click_by_logo_and_switch_to_new_tab(
-        #     (LogoHeaderPageLocators.LOGO_SCOOTER), 'undefined')
         scooter_disclaimer = logo.find_and_get_element_on_new_page(LogoHeaderPageLocators.SCOOTER_DISCLAIMER)
         assert scooter_disclaimer == 'УЧЕБНЫЙ ТРЕНАЖЕР', f'Дисклеймер страницы "{scooter_disclaimer}"'
