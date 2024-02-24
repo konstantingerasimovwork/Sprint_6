@@ -18,10 +18,32 @@ class BasePage:
     def get_text_element(self, locator):
         return self.find_element(locator).text
 
+    def get_title(self):
+        return self.browser.title
+
     #ожидание появления элемента
     def wait_visible_element(self, locator):
         WebDriverWait(self.browser, 5).until(expected_conditions.visibility_of_element_located(locator))
     
+    def wait_url_changes(self, url):
+        WebDriverWait(self.browser, 5).until(
+            expected_conditions.url_changes(url))
+    
+    def wait_number_of_windows_to_be(self, number):
+        WebDriverWait(self.browser, 5).until(expected_conditions.number_of_windows_to_be(number))
+
+    def wait_title_is(self, title):
+        WebDriverWait(self.browser, 9).until(expected_conditions.title_is(title))
+
+    def current_window_handle(self):
+        return self.browser.current_window_handle
+
+    def window_handles(self):
+        return self.browser.window_handles
+    
+    def switch_to_window(self, window_handle):
+        return self.browser.switch_to.window(window_handle)
+
     #скролл до элемента
     def scroll_to_element(self, locator):
         element = self.find_element(locator)
